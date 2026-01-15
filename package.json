@@ -1,24 +1,28 @@
 {
-    "name": "poe-wiki-search",
-    "version": "1.0.6",
-    "description": "Super simple search for poewiki.net!",
-    "main": "background/background.js",
-    "scripts": {
-        "start": "web-ext run -s ./src",
-        "test": "jest",
-        "test:watch": "jest --watchAll",
-        "build": "web-ext build -s ./src/ -a build --ignore-files **/*.spec.js"
-    },
-    "author": "github.com/pm5k",
-    "contributors": [
-        "github.com/cooperaustinj",
-        "github.com/tonytangio"
-    ],
-    "license": "GPL-3.0-only",
-    "devDependencies": {
-        "eslint": "^7.32.0",
-        "jest": "^27.1.0",
-        "jest-esm-transformer": "^1.0.0",
-        "web-ext": "^6.3.0"
-    }
+  "name": "poe-wiki-search",
+  "version": "1.0.6",
+  "description": "Super simple search for poewiki.net!",
+  "main": "background/background.js",
+  "scripts": {
+    "start": "web-ext run -s ./src --target=chromium --chromium-binary=\"C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe\"",
+    "test": "jest",
+    "test:watch": "jest --watchAll",
+    "build": "web-ext build -s ./src/ -a build --ignore-files **/*.spec.js **/jest.config.js **/jest.setup.js **/.eslintrc.json"
+  },
+  "author": "github.com/pm5k",
+  "contributors": [
+    "github.com/cooperaustinj",
+    "github.com/tonytangio"
+  ],
+  "license": "GPL-3.0-only",
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "jest": "^27.1.0",
+    "jest-esm-transformer": "^1.0.0",
+    "web-ext": "^6.3.0"
+  },
+  "dependencies": {
+    "npm": "^11.7.0",
+    "pnpm": "^10.28.0"
+  }
 }
