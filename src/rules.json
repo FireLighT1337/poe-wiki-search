@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": { "regexSubstitution": "https://www.poewiki.net/wiki/\\1" }
+    },
+    "condition": {
+      "regexFilter": "^https://pathofexile\\.fandom\\.com/wiki/(.*)",
+      "resourceTypes": ["main_frame"]
+    }
+  }
+]

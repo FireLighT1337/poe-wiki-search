@@ -7,6 +7,15 @@
     "extension_pages": "script-src 'self'; object-src 'self'"
   },
   "permissions": ["declarativeNetRequest"],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ruleset_1",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  },
   "icons": {
     "96": "icons/icon_96.png",
     "152": "icons/icon_152.png"
@@ -22,10 +31,6 @@
     "default_icon": {
       "96": "icons/icon_96.png"
     }
-  },
-  "background": {
-    "service_worker": "background/background.js",
-    "type": "module"
   },
   "commands": {
     "_execute_action": {
