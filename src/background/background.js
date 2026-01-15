@@ -7,13 +7,13 @@ const rules = [
       redirect: { regexSubstitution: "https://www.poewiki.net/wiki/\\1" },
     },
     condition: {
-      regexFilter: "https://pathofexile\\.fandom\\.com/wiki/(.*)",
+      regexFilter: "^https://pathofexile\\.fandom\\.com/wiki/(.*)",
       resourceTypes: ["main_frame"],
     },
   },
   {
     id: 2,
-    priority: 2,
+    priority: 1,
     action: {
       type: "redirect",
       redirect: {
@@ -23,13 +23,13 @@ const rules = [
     },
     condition: {
       regexFilter:
-        "https://.*\\.google\\.com/search\\?.*q=.*(?:poe|wiki|poewiki).*",
+        "^https://.*\\.google\\.com/search\\?.*q=.*(?:poe|wiki|poewiki).*",
       resourceTypes: ["main_frame"],
     },
   },
   {
     id: 3,
-    priority: 2,
+    priority: 1,
     action: {
       type: "redirect",
       redirect: {
@@ -38,10 +38,13 @@ const rules = [
     },
     condition: {
       regexFilter:
-        "https://.*\\.duckduckgo\\.com/\\?.*q=.*(?:poe|wiki|poewiki).*",
+        "^https://.*\\.duckduckgo\\.com/\\?.*q=.*(?:poe|wiki|poewiki).*",
       resourceTypes: ["main_frame"],
     },
   },
 ];
 
-chrome.declarativeNetRequest.updateSessionRules({ addRules: rules });
+chrome.declarativeNetRequest.updateDynamicRules({
+  removeRuleIds: [1, 2, 3],
+  addRules: rules,
+});
