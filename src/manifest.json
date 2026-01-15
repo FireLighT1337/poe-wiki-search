@@ -1,34 +1,36 @@
 {
-    "manifest_version": 2,
-    "name": "PoE Wiki Search",
-    "version": "1.0.6",
-    "description": "Stupid-simple wiki search for PoE!",
-    "icons": {
-        "96": "icons/icon_96.png",
-        "152": "icons/icon_152.png"
-    },
-    "permissions": [
-        "webRequest",
-        "webRequestBlocking",
-        "https://pathofexile.fandom.com/",
-        "https://google.com/",
-        "https://www.google.com/",
-        "https://duckduckgo.com/",
-        "https://www.duckduckgo.com/"
-    ],
-    "background": {
-        "page": "background/background.html"
-      },
-    "browser_action": {
-        "default_icon": "icons/favicon.png",
-        "default_title": "PoE Wiki Search",
-        "default_popup": "ui/ui.html"
-    },
-    "commands": {
-        "_execute_browser_action": {
-            "suggested_key": {
-                "default": "Alt+W"
-            }
-        }
+  "manifest_version": 3,
+  "name": "PoE Wiki Search",
+  "version": "1.0.6",
+  "description": "Stupid-simple wiki search for PoE!",
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
+  "permissions": ["declarativeNetRequest", "tabs"],
+  "icons": {
+    "96": "icons/icon_96.png",
+    "152": "icons/icon_152.png"
+  },
+  "host_permissions": [
+    "https://pathofexile.fandom.com/*",
+    "https://*.google.com/*",
+    "https://*.duckduckgo.com/*"
+  ],
+  "action": {
+    "default_popup": "ui/ui.html",
+    "default_title": "PoE Wiki Search",
+    "default_icons": {
+      "96": "icons/icon_96.png"
     }
+  },
+  "background": {
+    "service_worker": "background/background.js"
+  },
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Alt+W"
+      }
+    }
+  }
 }
